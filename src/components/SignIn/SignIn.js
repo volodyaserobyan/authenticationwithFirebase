@@ -4,12 +4,14 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 import * as ROUTES from '../constants/Routes'
 import { withFirebase } from '../Firebase'
+import { PasswordForgetLink } from '../PasswordForget/PasswordForget'
 
 const SignIn = () => {
     return (
         <div>
             <h1>SignIn</h1>
             <SignInForm />
+            <PasswordForgetLink />
             <SignUpLink />
         </div>
     )
@@ -19,7 +21,7 @@ const INITIAL_STATE = {
     email: '',
     password: '',
     error: null,
-  };
+};
 
 class SignInFormBase extends React.Component {
     constructor(props) {

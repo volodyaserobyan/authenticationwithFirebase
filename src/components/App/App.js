@@ -9,24 +9,29 @@ import Home from '../Home/Home'
 import Account from '../Account/Account'
 import Admin from '../Admin/Admin'
 import Navigation from '../Navigation/Navigation'
+import withAuthentication from '../Session/withAuthentication'
+import AuthUserContext from '../Session/context'
 
-const App = () => {
+class App extends React.Component {
 
-    return (
-        <BrowserRouter>
-            <Navigation />
 
-            <hr />
+    render() {
+        return (
+                <BrowserRouter>
+                    <Navigation />
 
-            <Route exact path={ROUTES.LANDING} component={Landing} />
-            <Route path={ROUTES.SIGN_UP} component={SignUp} />
-            <Route path={ROUTES.SIGN_IN} component={SignIn} />
-            <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForget} />
-            <Route path={ROUTES.HOME} component={Home} />
-            <Route path={ROUTES.ACCOUNT} component={Account} />
-            <Route path={ROUTES.ADMIN} component={Admin} />
-        </BrowserRouter>
-    )
+                    <hr />
+
+                    <Route exact path={ROUTES.LANDING} component={Landing} />
+                    <Route path={ROUTES.SIGN_UP} component={SignUp} />
+                    <Route path={ROUTES.SIGN_IN} component={SignIn} />
+                    <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForget} />
+                    <Route path={ROUTES.HOME} component={Home} />
+                    <Route path={ROUTES.ACCOUNT} component={Account} />
+                    <Route path={ROUTES.ADMIN} component={Admin} />
+                </BrowserRouter>
+        )
+    }
 }
 
-export default App
+export default withAuthentication(App)
